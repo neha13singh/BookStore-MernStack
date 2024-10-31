@@ -1,72 +1,9 @@
-// import React, { useEffect, useState } from 'react';
-// import axios from 'axios';
-// import Spinner from '../components/Spinner';
-// import { Link } from 'react-router-dom';
-// import { AiOutlineEdit } from 'react-icons/ai';
-// import { BsInfoCircle } from 'react-icons/bs';
-// import { MdOutlineAddBox, MdOutlineDelete } from 'react-icons/md';
-// import BooksTable from '../components/home/BooksTable';
-// import BooksCard from '../components/home/BooksCard';
-
-// const Home = () => {
-//   const [books, setBooks] = useState([]);
-//   const [loading, setLoading] = useState(false);
-//   const [showType, setShowType] = useState('table');
-
-//   useEffect(() => {
-//     setLoading(true);
-//     axios
-//       .get('http://localhost:8080/books')
-//       .then((response) => {
-//         setBooks(response.data.data);
-//         setLoading(false);
-//       })
-//       .catch((error) => {
-//         console.log(error);
-//         setLoading(false);
-//       });
-//   }, []);
-
-//   return (
-//     <div className='p-4'>
-//       <div className='flex justify-center items-center gap-x-4'>
-//         <button
-//           className='bg-sky-300 hover:bg-sky-600 px-4 py-1 rounded-lg'
-//           onClick={() => setShowType('table')}
-//         >
-//           Table
-//         </button>
-//         <button
-//           className='bg-sky-300 hover:bg-sky-600 px-4 py-1 rounded-lg'
-//           onClick={() => setShowType('card')}
-//         >
-//           Card
-//         </button>
-//       </div>
-//       <div className='flex justify-between items-center'>
-//         <h1 className='text-3xl my-8'>Books List</h1>
-//         <Link to='/books/create'>
-//           <MdOutlineAddBox className='text-sky-800 text-4xl' />
-//         </Link>
-//       </div>
-//       {loading ? (
-//         <Spinner />
-//       ) : showType === 'table' ? (
-//         <BooksTable books={books} />
-//       ) : (
-//         <BooksCard books={books} />
-//       )}
-//     </div>
-//   );
-// };
-
-// export default Home;
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Spinner from '../components/Spinner';
 import { Link } from 'react-router-dom';
 import { AiOutlineEdit } from 'react-icons/ai';
-import { BsInfoCircle } from 'react-icons/bs';
+import { BsInfoCircle, BsSearch } from 'react-icons/bs';
 import { MdOutlineAddBox, MdOutlineDelete } from 'react-icons/md';
 import BooksTable from '../components/home/BooksTable';
 import BooksCard from '../components/home/BooksCard';
@@ -75,6 +12,7 @@ const Home = () => {
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(false);
   const [showType, setShowType] = useState('table');
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     setLoading(true);
@@ -90,8 +28,26 @@ const Home = () => {
       });
   }, []);
 
+  // Filter books based on search term
+  const filteredBooks = books.filter((book) =>
+    book.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    book.author.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <div className="p-6 bg-red-50 min-h-screen">
+      {/* Search Bar */}
+      <div className="relative max-w-xl mx-auto mb-8">
+        <input
+          type="text"
+          placeholder="Search by title or author..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="w-full px-4 py-3 pl-12 rounded-full border-2 border-red-200 focus:border-red-500 focus:outline-none shadow-sm"
+        />
+        <BsSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-red-400 text-xl" />
+      </div>
+
       <div className="flex justify-center items-center gap-x-4 mb-6">
         <button
           className={`px-4 py-2 rounded-full text-white font-semibold transition-all ${
@@ -112,12 +68,9 @@ const Home = () => {
       </div>
 
       <div className="flex justify-between items-center mb-6">
-      
-  <h1 className="text-4xl font-bold text-red-600">Books List</h1>
-
+        <h1 className="text-4xl font-bold text-red-600">Books List</h1>
         <Link to="/books/create">
-        
-          <MdOutlineAddBox className="text-red-500 text-5xl hover:text-red-600 transition-all" ></MdOutlineAddBox>
+          <MdOutlineAddBox className="text-red-500 text-5xl hover:text-red-600 transition-all" />
         </Link>
       </div>
 
@@ -125,9 +78,9 @@ const Home = () => {
         {loading ? (
           <Spinner />
         ) : showType === 'table' ? (
-          <BooksTable books={books} />
+          <BooksTable books={filteredBooks} />
         ) : (
-          <BooksCard books={books} />
+          <BooksCard books={filteredBooks} />
         )}
       </div>
     </div>

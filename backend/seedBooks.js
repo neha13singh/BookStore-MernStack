@@ -17,183 +17,156 @@ const Book = mongoose.model('Book', bookSchema);
 // Sample books data to insert
 const booksData = [
     {
-      title: "Where the Crawdads Sing",
-      author: "Delia Owens",
-      publishYear: 2018,
-      summary: "A coming-of-age story intertwined with a murder mystery set in the marshes of North Carolina."
-    },
-    {
-      title: "The Vanishing Half",
-      author: "Brit Bennett",
-      publishYear: 2020,
-      summary: "A multi-generational tale about twin sisters who lead very different lives, exploring themes of identity and family."
-    },
-    {
-      title: "The Midnight Library",
-      author: "Matt Haig",
-      publishYear: 2020,
-      summary: "A woman finds herself in a library between life and death, where she can explore alternate versions of her life."
-    },
-    {
-      title: "The Guest List",
-      author: "Lucy Foley",
-      publishYear: 2020,
-      summary: "At a wedding on a remote Irish island, a murder occurs, revealing dark secrets among the guests."
-    },
-    {
-      title: "Klara and the Sun",
-      author: "Kazuo Ishiguro",
+      title: "The Last Bookshop in London",
+      author: "Madeline Martin",
       publishYear: 2021,
-      summary: "A poignant exploration of love and humanity through the eyes of an artificial friend."
+      summary: "A historical fiction novel about a young woman who discovers the power of books during the London Blitz."
     },
     {
-      title: "The Seven Husbands of Evelyn Hugo",
-      author: "Taylor Jenkins Reid",
-      publishYear: 2017,
-      summary: "A reclusive Hollywood icon recounts her glamorous life and loves to a young journalist."
-    },
-    {
-      title: "It Ends with Us",
-      author: "Colleen Hoover",
-      publishYear: 2016,
-      summary: "A poignant story about love, resilience, and the complexities of relationships."
-    },
-    {
-      title: "Circe",
-      author: "Madeline Miller",
-      publishYear: 2018,
-      summary: "A retelling of the life of Circe, the witch from Homer's Odyssey, exploring her journey of self-discovery."
-    },
-    {
-      title: "The Silent Patient",
-      author: "Alex Michaelides",
-      publishYear: 2019,
-      summary: "A psychological thriller about a woman who stops speaking after committing a shocking act of violence."
-    },
-    {
-      title: "Anxious People",
-      author: "Fredrik Backman",
-      publishYear: 2020,
-      summary: "A poignant story about a failed bank robber who takes a group of strangers hostage during an open house."
-    },
-    {
-      title: "Project Hail Mary",
-      author: "Andy Weir",
+      title: "Cloud Cuckoo Land",
+      author: "Anthony Doerr",
       publishYear: 2021,
-      summary: "An astronaut wakes up alone on a spaceship with no memory of who he is or why he's there."
+      summary: "An ambitious novel that weaves together three storylines across different time periods, connected by an ancient text."
     },
     {
-      title: "Daisy Jones & The Six",
-      author: "Taylor Jenkins Reid",
-      publishYear: 2019,
-      summary: "A fictional oral history of a 1970s rock band and the tumultuous relationships within."
+      title: "Beautiful World, Where Are You",
+      author: "Sally Rooney",
+      publishYear: 2021,
+      summary: "A novel about four young people navigating love, friendship and politics in contemporary Ireland."
+    },
+    {
+      title: "The Lincoln Highway",
+      author: "Amor Towles",
+      publishYear: 2021,
+      summary: "A compelling story of three young men on a journey across 1950s America."
+    },
+    {
+      title: "Matrix",
+      author: "Lauren Groff",
+      publishYear: 2021,
+      summary: "A bold vision of female power in medieval times, following a cast-out royal who transforms an impoverished abbey."
+    },
+    {
+      title: "The Paper Palace",
+      author: "Miranda Cowley Heller",
+      publishYear: 2021,
+      summary: "A story of summer love, family secrets, and the choices that echo through generations."
+    },
+    {
+      title: "Great Circle",
+      author: "Maggie Shipstead",
+      publishYear: 2021,
+      summary: "An epic story of a daring female aviator and the actress who portrays her decades later."
+    },
+    {
+      title: "The Four Winds",
+      author: "Kristin Hannah",
+      publishYear: 2021,
+      summary: "A powerful American epic about love, heroism, and hope, set during the Great Depression."
+    },
+    {
+      title: "Harlem Shuffle",
+      author: "Colson Whitehead",
+      publishYear: 2021,
+      summary: "A family saga masquerading as a crime novel, set in 1960s Harlem."
+    },
+    {
+      title: "The Heart Principle",
+      author: "Helen Hoang",
+      publishYear: 2021,
+      summary: "A contemporary romance about a woman finding her voice and her way back to love."
     },
     {
       title: "The Invisible Life of Addie LaRue",
       author: "V.E. Schwab",
       publishYear: 2020,
-      summary: "A young woman makes a Faustian bargain to live forever but is forgotten by everyone she meets."
+      summary: "A woman makes a Faustian bargain to live forever but is cursed to be forgotten by everyone she meets."
     },
     {
-      title: "A Man Called Ove",
-      author: "Fredrik Backman",
-      publishYear: 2012,
-      summary: "A heartwarming tale about a curmudgeonly old man whose life changes when a new family moves in next door."
-    },
-    {
-      title: "The Night Circus",
-      author: "Erin Morgenstern",
-      publishYear: 2011,
-      summary: "A magical competition between two young illusionists unfolds in a mysterious, enchanting circus."
-    },
-    {
-      title: "Little Fires Everywhere",
-      author: "Celeste Ng",
-      publishYear: 2017,
-      summary: "A story of two families in a suburban town, exploring themes of motherhood, race, and privilege."
-    },
-    {
-      title: "Normal People",
-      author: "Sally Rooney",
-      publishYear: 2018,
-      summary: "A complex love story between two teenagers navigating life and relationships in Ireland."
-    },
-    {
-      title: "The Help",
-      author: "Kathryn Stockett",
-      publishYear: 2009,
-      summary: "Set in the 1960s, three women come together to expose the injustices faced by African American maids."
-    },
-    {
-      title: "The Alchemist",
-      author: "Paulo Coelho",
-      publishYear: 1988,
-      summary: "A young shepherd's journey to discover his personal legend and the meaning of life."
-    },
-    {
-      title: "The Girl on the Train",
-      author: "Paula Hawkins",
-      publishYear: 2015,
-      summary: "A psychological thriller centered around an alcoholic woman who becomes embroiled in a missing person's investigation."
-    },
-    {
-      title: "The Book Thief",
-      author: "Markus Zusak",
-      publishYear: 2005,
-      summary: "A young girl in Nazi Germany finds solace in stealing books and sharing them with others."
-    },
-    {
-      title: "Life After Life",
-      author: "Kate Atkinson",
-      publishYear: 2013,
-      summary: "A woman lives multiple lives, dying and being reborn, in various scenarios throughout the 20th century."
-    },
-    {
-      title: "Educated",
-      author: "Tara Westover",
-      publishYear: 2018,
-      summary: "A memoir about a woman who grows up in a strict and abusive household in rural Idaho but eventually escapes to learn about the world through education."
-    },
-    {
-      title: "The Light We Lost",
-      author: "Jill Santopolo",
-      publishYear: 2017,
-      summary: "A love story about the choices we make and the consequences they have on our lives."
-    },
-    {
-      title: "The Henna Artist",
-      author: "Alka Joshi",
+      title: "Mexican Gothic",
+      author: "Silvia Moreno-Garcia",
       publishYear: 2020,
-      summary: "A tale of a young woman who escapes an abusive marriage in India and becomes a successful henna artist."
+      summary: "A reimagining of the classic gothic suspense novel, set in 1950s Mexico."
     },
     {
-      title: "A Discovery of Witches",
-      author: "Deborah Harkness",
-      publishYear: 2011,
-      summary: "A historian discovers a bewitched manuscript that draws her into the world of witches and vampires."
+      title: "The Midnight Library",
+      author: "Matt Haig",
+      publishYear: 2020,
+      summary: "Between life and death, a library exists where one can explore different versions of their life."
     },
     {
-      title: "The Ocean at the End of the Lane",
-      author: "Neil Gaiman",
-      publishYear: 2013,
-      summary: "A man returns to his hometown and recalls a mysterious childhood adventure involving ancient forces."
+      title: "Hamnet",
+      author: "Maggie O'Farrell",
+      publishYear: 2020,
+      summary: "A fictional account of the life of Shakespeare's son and the impact of his death on the family."
     },
     {
-      title: "Pachinko",
-      author: "Min Jin Lee",
+      title: "The Seven Husbands of Evelyn Hugo",
+      author: "Taylor Jenkins Reid",
       publishYear: 2017,
-      summary: "A sweeping generational saga of a Korean family living in Japan, exploring themes of identity and survival."
+      summary: "An aging Hollywood starlet reveals her life story to an unknown journalist."
     },
     {
-      title: "The Testaments",
-      author: "Margaret Atwood",
-      publishYear: 2019,
-      summary: "A sequel to The Handmaid's Tale, exploring life in Gilead through the eyes of three women."
+      title: "The Song of Achilles",
+      author: "Madeline Miller",
+      publishYear: 2011,
+      summary: "A retelling of the Iliad from the perspective of Patroclus, Achilles' companion."
     },
-  ];
-  
- 
-  
+    {
+      title: "The Thursday Murder Club",
+      author: "Richard Osman",
+      publishYear: 2020,
+      summary: "Four retirees meet weekly to solve cold cases, until a real murder occurs in their community."
+    },
+    {
+      title: "Piranesi",
+      author: "Susanna Clarke",
+      publishYear: 2020,
+      summary: "A man lives in a mysterious house with infinite rooms and statues, questioning his reality."
+    },
+    {
+      title: "The Vanishing Half",
+      author: "Brit Bennett",
+      publishYear: 2020,
+      summary: "Twin sisters lead very different lives after running away from their small Black community."
+    },
+    {
+      title: "Such a Fun Age",
+      author: "Kiley Reid",
+      publishYear: 2019,
+      summary: "A young Black babysitter, her well-intentioned employer, and a surprising connection."
+    },
+    {
+      title: "A Gentleman in Moscow",
+      author: "Amor Towles",
+      publishYear: 2016,
+      summary: "A Russian count is sentenced to house arrest in a grand hotel for life."
+    },
+    {
+      title: "The Dutch House",
+      author: "Ann Patchett",
+      publishYear: 2019,
+      summary: "A siblings' bond is tested by their stepmother and their attachment to their childhood home."
+    },
+    {
+      title: "Circe",
+      author: "Madeline Miller",
+      publishYear: 2018,
+      summary: "A feminist retelling of the story of Circe, the witch from Homer's Odyssey."
+    },
+    {
+      title: "The Starless Sea",
+      author: "Erin Morgenstern",
+      publishYear: 2019,
+      summary: "A graduate student discovers a mysterious book that leads him to an underground world."
+    },
+    {
+      title: "On Earth We're Briefly Gorgeous",
+      author: "Ocean Vuong",
+      publishYear: 2019,
+      summary: "A letter from a son to a mother who cannot read, exploring family history and identity."
+    }
+];
 
 // Function to insert books data
 const insertBooksData = async () => {
