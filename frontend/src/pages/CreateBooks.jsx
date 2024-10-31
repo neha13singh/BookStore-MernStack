@@ -18,7 +18,7 @@ const CreateBooks = () => {
     // Split summary into words and validate the word count
     const wordCount = summary.trim().split(/\s+/).length;
     if (wordCount < 30 || wordCount > 200) {
-      enqueueSnackbar('Summary must be between 100 and 300 words.', { variant: 'warning' });
+      enqueueSnackbar('Summary must be between 30 and 300 words.', { variant: 'warning' });
       return;
     }
 
