@@ -28,19 +28,25 @@ const Home = () => {
       });
   }, []);
 
-  // Filter books based on search term
-  const filteredBooks = books.filter((book) =>
-    book.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    book.author.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  // Enhanced filter function to include publishYear
+  const filteredBooks = books.filter((book) => {
+    const searchLower = searchTerm.toLowerCase();
+    const publishYearStr = book.publishYear.toString();
+    
+    return (
+      book.title.toLowerCase().includes(searchLower) ||
+      book.author.toLowerCase().includes(searchLower) ||
+      publishYearStr.includes(searchLower)
+    );
+  });
 
   return (
     <div className="p-6 bg-red-50 min-h-screen">
-      {/* Search Bar */}
+      {/* Enhanced Search Bar */}
       <div className="relative max-w-xl mx-auto mb-8">
         <input
           type="text"
-          placeholder="Search by title or author..."
+          placeholder="Search by title, author, or year..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           className="w-full px-4 py-3 pl-12 rounded-full border-2 border-red-200 focus:border-red-500 focus:outline-none shadow-sm"
