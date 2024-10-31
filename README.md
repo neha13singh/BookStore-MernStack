@@ -1,26 +1,68 @@
-# Book Store MERN stack project
+# 📚 Bookstore
 
-## Lessons
+A web application for managing a bookstore, displaying book details such as title, author, publishing year, and summary. Built using MongoDB, Express.js, React, Node.js (MERN stack), and styled with Tailwind CSS.
 
-- [x] Lesson 01: Create Node.js project from scratch
-- [x] Lesson 02: Create our first Http Route
-- [x] Lesson 03: Add MongoDB and mongoose to node js
-- [x] Lesson 04: Create Book model with mongoose
-- [x] Lesson 05: Save a new Book with mongoose
-- [x] Lesson 06: Get All Books with mongoose
-- [x] Lesson 07: Get One Book by id with mongoose
-- [x] Lesson 08: Update a Book with mongoose
-- [x] Lesson 09: Delete a book with mongoose
-- [x] Lesson 10: Refactor Node js with express router
-- [x] Lesson 11: CORS policy in Node js and Express js
-- [x] Lesson 12: Create React project, Vite, Tailwind CSS
-- [x] Lesson 13: SPA and Add react router dom
-- [x] Lesson 14: Show Books List in React
-- [x] Lesson 15: Show Book Details in React
-- [x] Lesson 16: Create Book in React
-- [x] Lesson 17: Edit Book in React
-- [x] Lesson 18: Delete Book in React
-- [x] Lesson 19: Show Books List as Card
-- [x] Lesson 20: Make Book Card a single component
-- [x] Lesson 21: Add Book Modal
-- [x] Lesson 22: Improve User Experience (UX) with beautiful alert
+## 🛠️ Tech Stack
+
+- **Frontend**: React, Tailwind CSS
+- **Backend**: Node.js, Express.js
+- **Database**: MongoDB
+
+## ✨ Features
+
+- Display list of books with detailed information
+- Add new books to the collection
+- Edit book information
+- Delete books from the collection
+
+## 🚀 Getting Started
+
+Follow these instructions to set up the project locally.
+
+### Prerequisites
+
+Ensure you have the following installed:
+- [Node.js](https://nodejs.org/) (v14 or higher)
+- [MongoDB](https://www.mongodb.com/) (local installation or [MongoDB Atlas](https://www.mongodb.com/cloud/atlas))
+- [Git](https://git-scm.com/)
+
+### Installation
+
+1. **Clone the Repository and Install Dependencies:**
+
+   ```bash
+   # Clone the repository
+   git clone "copy code from codes"
+   cd bookstore
+
+   # Install backend dependencies
+   cd backend
+   npm install
+
+   # Set up environment variables
+   echo "MONGODB_URI=your_mongodb_connection_string" > .env
+   echo "PORT=8080" >> .env
+
+   # Start the backend server
+   npm start &
+   
+   # Install frontend dependencies
+   cd ../frontend
+   npm install
+
+   # Start the frontend server
+   npm run dev
+
+## 🗃️ API Endpoints
+
+**Base URL:** `http://localhost:5000/api/books`
+
+- **GET** `/books` - Retrieve all books
+- **POST** `/books` - Add a new book
+- **GET** `/books/:id` - Get a book by ID
+- **PUT** `/books/:id` - Update a book by ID
+- **DELETE** `/books/:id` - Delete a book by ID
+
+
+
+   
