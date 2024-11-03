@@ -32,8 +32,13 @@ A MERN stack application for managing a bookstore's inventory with features for 
 ### Create Book
 ![Create Book](https://github.com/user-attachments/assets/a1110b89-77ac-4b2e-9629-e763bbf7863c)
 
+
+
+
 ### Book Details
-![Book Details](screenshots/details.png)
+![Book Details](https://github.com/user-attachments/assets/9d93c807-da61-4d24-8f1f-6d4f5af0f1ec)
+
+)
 
 ## 🚀 Getting Started
 
