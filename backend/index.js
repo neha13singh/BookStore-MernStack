@@ -31,11 +31,12 @@ app.use('/books', booksRoute);
 mongoose
   .connect(mongoDBURL)
   .then(() => {
-    console.log('App connected to database');
+    console.log('Successfully connected to MongoDB');
     app.listen(PORT, () => {
-      console.log(`App is listening to port:" ${PORT}`);
+      console.log(`Server is running on port: ${PORT}`);
     });
   })
   .catch((error) => {
-    console.log(error);
+    console.error('Error connecting to MongoDB:', error.message);
+    process.exit(1);
   });
