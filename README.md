@@ -1,4 +1,4 @@
-# 📚 Bookstore Management System
+# 📚 Bookshow  A Book Management System
 
 A MERN stack application for managing a bookstore's inventory with features for creating, reading, updating, and deleting books. Built with MongoDB, Express.js, React, Node.js, and styled with Tailwind CSS.
 
