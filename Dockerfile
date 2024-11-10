@@ -25,13 +25,14 @@ RUN npm run build
 
 # Set environment variables
 ENV PORT=8080
+ENV HOST=0.0.0.0
 ENV VITE_API_URL=http://localhost:8080
 
-# Create start script inline
+# Create start script
 WORKDIR /app
 RUN echo '#!/bin/sh\n\
 cd /app/backend && node index.js & \n\
-cd /app/frontend && npm run dev' > start.sh && \
+cd /app/frontend && HOST=0.0.0.0 npm run dev' > start.sh && \
 chmod +x start.sh
 
 # Expose ports
