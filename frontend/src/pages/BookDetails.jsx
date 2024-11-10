@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import { apiClient } from '../utils/api';
 import { useParams, useNavigate } from 'react-router-dom';
 import { BiArrowBack } from 'react-icons/bi';
 import Spinner from '../components/Spinner';
@@ -12,8 +12,8 @@ const BookDetails = () => {
 
   useEffect(() => {
     setLoading(true);
-    axios
-      .get(`http://localhost:8080/books/${id}`)
+    apiClient
+      .get(`/books/${id}`)
       .then((response) => {
         setBook(response.data);
         setLoading(false);
