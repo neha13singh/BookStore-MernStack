@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import { apiClient } from '../utils/api';
 import Spinner from '../components/Spinner';
 import { Link } from 'react-router-dom';
 import { AiOutlineEdit } from 'react-icons/ai';
@@ -16,8 +16,8 @@ const Home = () => {
 
   useEffect(() => {
     setLoading(true);
-    axios
-      .get('http://localhost:8080/books')
+    apiClient
+      .get('/books')
       .then((response) => {
         setBooks(response.data.data);
         setLoading(false);
