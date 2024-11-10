@@ -23,20 +23,15 @@ COPY backend/ /app/backend/
 WORKDIR /app/frontend
 RUN npm run build
 
-# Set environment variables
-ENV PORT=3000
-ENV HOST=0.0.0.0
-ENV VITE_API_URL=http://localhost:3000
-
-# Create start script
+# Create start script that runs both servers
 WORKDIR /app
 RUN echo '#!/bin/sh\n\
-cd /app/backend && PORT=3000 node index.js & \n\
-cd /app/frontend && PORT=3000 HOST=0.0.0.0 npm run dev' > start.sh && \
+cd /app/backend && node healthcheck.js & \n\
+cd /app/backend && PORT=8080 node index.js' > start.sh && \
 chmod +x start.sh
 
-# Expose port
-EXPOSE 3000
+# Expose ports
+EXPOSE 3000 8080
 
 # Start the application
 CMD ["./start.sh"]
