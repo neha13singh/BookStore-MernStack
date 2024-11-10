@@ -23,13 +23,19 @@ COPY backend/ /app/backend/
 WORKDIR /app/frontend
 RUN npm run build
 
-# Expose ports
-EXPOSE 3000 8080
+# Set environment variables
+ENV PORT=8080
+ENV VITE_API_URL=http://localhost:8080
 
-# Create start script
+# Create start script inline
 WORKDIR /app
-COPY start.sh .
-RUN chmod +x start.sh
+RUN echo '#!/bin/sh\n\
+cd /app/backend && node index.js & \n\
+cd /app/frontend && npm run dev' > start.sh && \
+chmod +x start.sh
+
+# Expose ports
+EXPOSE 5173 8080
 
 # Start the application
 CMD ["./start.sh"]
