@@ -44,6 +44,20 @@ A MERN stack application for managing a bookstore's inventory with features for 
 
 Follow these instructions to set up the project locally.
 
+## 🛠️ Technologies Used
+
+- **Frontend:**
+  - React
+  - React Router
+  - Tailwind CSS
+  - Axios
+  - Notistack (for notifications)
+  
+- **Backend:**
+  - Node.js
+  - Express.js
+  - MongoDB (with Mongoose)
+  - CORS (for handling cross-origin requests)
 ### Prerequisites
 
 Ensure you have the following installed:
