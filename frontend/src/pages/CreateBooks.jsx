@@ -45,7 +45,7 @@ const CreateBooks = () => {
   };
 
   return (
-    <div className='p-4 bg-red-50 min-h-screen'>
+    <div className='p-4 bg-red-50 min-h-screen pt-16'>
       <BackButton />
       <div className="flex justify-center items-center p-2 md:p-4">
         <h1 className='text-3xl md:text-4xl font-bold text-red-600'>Create Book</h1>
@@ -53,7 +53,8 @@ const CreateBooks = () => {
 
       {loading ? <Spinner /> : ''}
       
-      <div className='flex flex-col border-2 border-red-400 rounded-xl w-[90%] md:w-[600px] p-2 md:p-4 mx-auto bg-white'>
+      <div className='flex flex-col border-2 border-red-400 rounded-xl w-[80%] md:w-[500px] p-2 md:p-4 mx-auto bg-white'>
+
         <div className='my-2 md:my-4'>
           <label className='text-lg md:text-xl mr-4 text-red-900'>Title</label>
           <input
