@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Navbar = ({ token, username, onLogout }) => {
   return (
-    <nav className="bg-gradient-to-r from-red-500 to-red-700 shadow-lg fixed w-full py-3 z-50">
+    <nav className="bg-gradient-to-r from-red-500 to-red-700 shadow-lg fixed w-full py-2 z-50">
       <div className="container mx-auto flex justify-between items-center px-6">
         {/* Home Button */}
         <div className="flex items-center space-x-4">
@@ -28,7 +28,7 @@ const Navbar = ({ token, username, onLogout }) => {
               <span className="text-white text-sm font-medium">Welcome, {username}</span>
               <button 
                 onClick={onLogout} 
-                className="bg-white text-red-600 px-4 py-2 rounded-full shadow-md hover:bg-gray-100 transition-colors"
+                className="bg-white text-red-600 px-4 py-1 rounded-full shadow-md hover:bg-gray-100 transition-colors"
               >
                 Logout
               </button>
@@ -37,13 +37,13 @@ const Navbar = ({ token, username, onLogout }) => {
             <>
               <Link 
                 to="/login" 
-                className="bg-white text-red-600 px-4 py-2 rounded-full shadow-md hover:bg-gray-100 transition-colors"
+                className="bg-white text-red-600 px-4 py-1 rounded-full shadow-md hover:bg-gray-100 transition-colors"
               >
                 Login
               </Link>
               <Link 
                 to="/register" 
-                className="bg-white text-red-600 px-4 py-2 rounded-full shadow-md hover:bg-gray-100 transition-colors"
+                className="bg-white text-red-600 px-4 py-1 rounded-full shadow-md hover:bg-gray-100 transition-colors"
               >
                 Register
               </Link>
