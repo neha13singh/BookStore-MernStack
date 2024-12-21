@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const apiClient = axios.create({
-  baseURL: 'https://book-show-backend-84wb.onrender.com',
+  baseURL: 'https://book-show-backend-zwuz.onrender.com',
   headers: {
     'Content-Type': 'application/json',
   },
