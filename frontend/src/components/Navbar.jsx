@@ -25,7 +25,7 @@ const Navbar = ({ token, username, onLogout }) => {
         <div className="flex items-center space-x-6">
           {token ? (
             <>
-              <span className="text-white text-sm font-medium">Welcome, {username}</span>
+              <span className="text-white text-sm font-medium">{username}</span>
               <button 
                 onClick={onLogout} 
                 className="bg-white text-red-600 px-4 py-1 rounded-full shadow-md hover:bg-gray-100 transition-colors"
