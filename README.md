@@ -1,6 +1,6 @@
 # 📚 Bookshow  A Book Management System
 
-[Live Demo](https://book-show-frontend.onrender.com/)
+[Live Demo]([https://book-show-frontend.onrender.com/](https://book-show-frontend-oekh.onrender.com))
 
 A MERN stack application for managing a bookstore's inventory with features for creating, reading, updating, and deleting books. Built with MongoDB, Express.js, React, Node.js, and styled with Tailwind CSS.
 
