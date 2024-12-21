@@ -1,10 +1,11 @@
 import express from 'express';
 import { Book } from '../models/bookModel.js';
+import authMiddleware from '../middleware/authMiddleware.js';
 
 const router = express.Router();
 
-// Route for Save a new Book
-router.post('/', async (request, response) => {
+// Protect the route
+router.post('/', authMiddleware, async (request, response) => {
   try {
     if (
       !request.body.title ||

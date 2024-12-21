@@ -1,3 +1,50 @@
+// import React, { useEffect, useState } from 'react';
+// import { useParams, useNavigate } from 'react-router-dom';
+// import { apiClient } from '../utils/api';
+// import Spinner from '../components/Spinner';
+
+// const BookDetails = () => {
+//   const [book, setBook] = useState(null);
+//   const [loading, setLoading] = useState(false);
+//   const { id } = useParams();
+//   const navigate = useNavigate();
+
+//   useEffect(() => {
+//     const fetchBookDetails = async () => {
+//       setLoading(true);
+//       try {
+//         const response = await apiClient.get(`/books/${id}`);
+//         setBook(response.data);
+//       } catch (error) {
+//         console.error('Error fetching book details:', error);
+//         navigate('/'); // Redirect to home or show an error message
+//       } finally {
+//         setLoading(false);
+//       }
+//     };
+
+//     fetchBookDetails();
+//   }, [id, navigate]);
+
+//   if (loading) {
+//     return <Spinner />;
+//   }
+
+//   if (!book) {
+//     return <div>Book not found</div>;
+//   }
+
+//   return (
+//     <div>
+//       <h1>{book.title}</h1>
+//       <p>Author: {book.author}</p>
+//       <p>Published: {book.publishYear}</p>
+//       <p>Summary: {book.summary}</p>
+//     </div>
+//   );
+// };
+
+// export default BookDetails;
 import React, { useEffect, useState } from 'react';
 import { apiClient } from '../utils/api';
 import { useParams, useNavigate } from 'react-router-dom';
