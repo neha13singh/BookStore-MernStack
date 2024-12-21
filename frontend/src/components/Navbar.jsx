@@ -3,19 +3,50 @@ import { Link } from 'react-router-dom';
 
 const Navbar = ({ token, username, onLogout }) => {
   return (
-    <nav className="bg-red-500 p-4">
-      <div className="container mx-auto flex justify-between items-center">
-        <Link to="/" className="text-white text-lg font-bold">Book Show</Link>
-        <div className="flex items-center">
+    <nav className="bg-gradient-to-r from-red-500 to-red-700 shadow-lg fixed w-full py-3 z-50">
+      <div className="container mx-auto flex justify-between items-center px-6">
+        {/* Home Button */}
+        <div className="flex items-center space-x-4">
+          <Link 
+            to="/" 
+            className="text-white text-xl font-semibold hover:text-gray-200 transition-colors"
+          >
+            Book Show
+          </Link>
+          <Link 
+            to="/" 
+            className="text-white text-base font-medium hover:text-gray-200 transition-colors"
+          >
+            Home
+          </Link>
+        </div>
+
+        {/* Navigation Links */}
+        <div className="flex items-center space-x-6">
           {token ? (
             <>
-              <span className="text-white mx-2">{username}</span>
-              <button onClick={onLogout} className="text-white mx-2">Logout</button>
+              <span className="text-white text-sm font-medium">Welcome, {username}</span>
+              <button 
+                onClick={onLogout} 
+                className="bg-white text-red-600 px-4 py-2 rounded-full shadow-md hover:bg-gray-100 transition-colors"
+              >
+                Logout
+              </button>
             </>
           ) : (
             <>
-              <Link to="/login" className="text-white mx-2">Login</Link>
-              <Link to="/register" className="text-white mx-2">Register</Link>
+              <Link 
+                to="/login" 
+                className="bg-white text-red-600 px-4 py-2 rounded-full shadow-md hover:bg-gray-100 transition-colors"
+              >
+                Login
+              </Link>
+              <Link 
+                to="/register" 
+                className="bg-white text-red-600 px-4 py-2 rounded-full shadow-md hover:bg-gray-100 transition-colors"
+              >
+                Register
+              </Link>
             </>
           )}
         </div>
